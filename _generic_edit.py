@@ -208,9 +208,9 @@ pressKeyMap.update(functionKeyMap)
 
 
 formatMap = {
-    "camel case": ft.camelCase,
-    "pascal case": ft.pascalCase,
-    "snake case": ft.snakeCase,
+    "camel": ft.camelCase,
+    "pascal": ft.pascalCase,
+    "snake": ft.snakeCase,
     "uppercase": ft.upperCase,
     "lowercase": ft.lowerCase,
     "squash": ft.squash,
@@ -398,24 +398,31 @@ grammarCfg.cmd.map = Item(
         "end": Key("end"),
         "doc home": Key("c-home/3"),
         "doc end": Key("c-end/3"),
+        # Selections
+        "take <n> up": release + Key("shift:down, up:%(n)d, shift:up"),
+        "take <n> down": release + Key("shift:down, down:%(n)d, shift:up"),
+        "take <n> right": release + Key("shift:down, right:%(n)d, shift:up"),
+        "take <n> left": release + Key("shift:down, left:%(n)d, shift:up"),
+        "take all": release + Key("c-a/3"),
         # Functional keys.
         "space": release + Key("space"),
         "space [<n>]": release + Key("space:%(n)d"),
-        "enter [<n>]": release + Key("enter:%(n)d"),
+        "slap [<n>]": release + Key("enter:%(n)d"),
+        "slide [<n>]": release + Key("end, enter:%(n)d")
         "tab [<n>]": Key("tab:%(n)d"),
-        "delete [<n>]": Key("del/3:%(n)d"),
-        "delete [this] line": Key("home, s-end, del"),  # @IgnorePep8
-        "backspace [<n>]": release + Key("backspace:%(n)d"),
-        "application key": release + Key("apps/3"),
-        "win key": release + Key("win/3"),
+        "chuck [<n>]": Key("del/3:%(n)d"),
+        "(chuck|scratch) [this] line": Key("home, s-end, del"),  # @IgnorePep8
+        "scratch [<n>]": release + Key("backspace:%(n)d"),
+        "app key": release + Key("apps/3"),
+        "mod key": release + Key("win/3"),
         "paste [that]": Function(paste_command),
         "copy [that]": Function(copy_command),
         "cut [that]": release + Key("c-x/3"),
-        "select all": release + Key("c-a/3"),
         "undo": release + Key("c-z/3"),
         "undo <n> [times]": release + Key("c-z/3:%(n)d"),
         "redo": release + Key("c-y/3"),
         "redo <n> [times]": release + Key("c-y/3:%(n)d"),
+        # Modifiers.
         "[(hold|press)] alt": Key("alt:down/3"),
         "release alt": Key("alt:up"),
         "[(hold|press)] shift": Key("shift:down/3"),
@@ -424,8 +431,8 @@ grammarCfg.cmd.map = Item(
         "release control": Key("ctrl:up"),
         "release [all]": release,
         # Closures.
-        "angle brackets": Key("langle, rangle, left/3"),
-        "brackets": Key("lbracket, rbracket, left/3"),
+        "angles": Key("langle, rangle, left/3"),
+        "squares": Key("lbracket, rbracket, left/3"),
         "braces": Key("lbrace, rbrace, left/3"),
         "parens": Key("lparen, rparen, left/3"),
         "quotes": Key("dquote/3, dquote/3, left/3"),
@@ -436,7 +443,7 @@ grammarCfg.cmd.map = Item(
         "double escape": Key("escape, escape"),  # Exiting menus.
         # Punctuation and separation characters, for quick editing.
         "colon [<n>]": Key("colon/2:%(n)d"),
-        "semi-colon [<n>]": Key("semicolon/2:%(n)d"),
+        "(semi-colon|semicolon) [<n>]": Key("semicolon/2:%(n)d"),
         "comma [<n>]": Key("comma/2:%(n)d"),
         "(dot|period) [<n>]": Key("dot/2:%(n)d"),
         "(dash|hyphen|minus) [<n>]": Key("hyphen/2:%(n)d"),
@@ -444,9 +451,9 @@ grammarCfg.cmd.map = Item(
         # To release keyboard capture by VirtualBox.
         "press right control": Key("Control_R"),
         # Formatting <n> words to the left of the cursor.
-        "camel case <n> [words]": Function(camel_case_count),
-        "pascal case <n> [words]": Function(pascal_case_count),
-        "snake case <n> [words]": Function(snake_case_count),
+        "camel <n> [words]": Function(camel_case_count),
+        "pascal <n> [words]": Function(pascal_case_count),
+        "snake <n> [words]": Function(snake_case_count),
         "squash <n> [words]": Function(squash_count),
         "expand <n> [words]": Function(expand_count),
         "uppercase <n> [words]": Function(uppercase_count),
@@ -461,7 +468,7 @@ grammarCfg.cmd.map = Item(
         "say <reservedWord>": Text("%(reservedWord)s"),
         # Abbreviate words commonly used in programming.
         # Ex: arguments -> args, parameters -> params.
-        "abbreviate <abbreviation>": Text("%(abbreviation)s"),
+        "short <abbreviation>": Text("%(abbreviation)s"),
         # Text corrections.
         "(add|fix) missing space": Key("c-left/3, space, c-right/3"),
         "(delete|remove) (double|extra) (space|whitespace)": Key("c-left/3, backspace, c-right/3"),  # @IgnorePep8
@@ -469,7 +476,7 @@ grammarCfg.cmd.map = Item(
         # Microphone sleep/cancel started dictation.
         "[<text>] (go to sleep|cancel and sleep) [<text2>]": Function(cancel_and_sleep),  # @IgnorePep8
         # Reload Natlink.
-        "reload Natlink": Function(reload_natlink),
+        # "reload Natlink": Function(reload_natlink),
     },
     namespace={
         "Key": Key,
