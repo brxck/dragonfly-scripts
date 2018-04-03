@@ -7,13 +7,14 @@ from dragonfly import (
     Choice,
 )
 
-from lib.dynamic_aenea import (
-    GlobalDynamicContext,
+from aenea import (
     Key,
     Text,
 )
 
-from lib.text import SCText
+# from lib.text import SCText
+from aenea import Text as SCText
+
 import lib.format
 
 DYN_MODULE_TYPE = "programming_languages"
@@ -93,7 +94,7 @@ rules = MappingRule(
         "exec": Text("exec "),
         "exit": Text("exit") + Key("enter"),
         "(exponent|to the power of)": Text(" ** "),
-        "(el if|else if)": Text("elsif "),
+        "(el if|else if)": Text("elsif "), 
         "(el if|else if) <text>": SCText("elsif %(text)s"),
         "end [block]": Text("end") + Key("enter"),
         "ensure": Text("ensure") + Key("enter"),
@@ -220,7 +221,7 @@ rules = MappingRule(
     }
 )
 
-grammar = Grammar("Ruby grammar", context=GlobalDynamicContext())
+grammar = Grammar("Ruby grammar")
 grammar.add_rule(rules)
 grammar.load()
 grammar.disable()

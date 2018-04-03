@@ -9,8 +9,7 @@ from dragonfly import (
     Choice
 )
 
-from lib.dynamic_aenea import (
-    GlobalDynamicContext,
+from aenea import (
     Key,
     Text,
 )
@@ -211,7 +210,7 @@ series_rule = SeriesMappingRule(
     }
 )
 
-grammar = Grammar("Git commands", context=GlobalDynamicContext())
+grammar = Grammar("Git commands")
 grammar.add_rule(series_rule)
 grammar.load()
 grammar.disable()

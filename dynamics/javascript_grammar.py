@@ -6,8 +6,7 @@ from dragonfly import (
     IntegerRef
 )
 
-from lib.dynamic_aenea import (
-    GlobalDynamicContext,
+from aenea import (
     Key,
     Text,
 )
@@ -116,7 +115,7 @@ rules = MappingRule(
     }
 )
 
-grammar = Grammar("JavaScript grammar", context=GlobalDynamicContext())
+grammar = Grammar("JavaScript grammar")
 grammar.add_rule(rules)
 grammar.load()
 grammar.disable()

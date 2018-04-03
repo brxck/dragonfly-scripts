@@ -9,8 +9,7 @@ from dragonfly import (
     Dictation
 )
 
-from lib.dynamic_aenea import (
-    GlobalDynamicContext,
+from aenea import (
     Key,
     Text,
 )
@@ -111,7 +110,7 @@ series_rule = SeriesMappingRule(
     }
 )
 
-grammar = Grammar("Subversion commands", context=GlobalDynamicContext())
+grammar = Grammar("Subversion commands")
 grammar.add_rule(series_rule)
 grammar.load()
 grammar.disable()
