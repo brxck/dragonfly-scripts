@@ -12,9 +12,7 @@ from dragonfly import (
     Grammar,
 )
 
-from lib.dynamic_aenea import (
-    DynamicAction,
-    DynamicContext,
+from aenea import (
     Key,
 )
 
@@ -54,7 +52,9 @@ mapping = {
    "find previous [<n>]": Key("s-f3/10:%(n)d"),
    "find next [<n>]": Key("f3/10:%(n)d"),
 
-   "go to tab [<n>]": DynamicAction(Key("c-%(n)d"), Key("a-%(n)d")) # Not supported by Opera.
+   # "go to tab [<n>]": DynamicAction(Key("c-%(n)d"), Key("a-%(n)d")) # Not supported by Opera.
+   "go to tab [<n>]": Key("a-%(n)d") # Not supported by Opera.
+
 }
 
 nixContext1 = NixAppContext(executable="firefox", title="Firefox")
@@ -81,7 +81,7 @@ rules = MappingRule(
 )
 
 
-grammar = Grammar("FF, Chrome, and Opera", context=DynamicContext(winContext, nixContext))
+grammar = Grammar("FF, Chrome, and Opera")
 grammar.add_rule(rules)
 grammar.load()
 

@@ -27,8 +27,7 @@ from dragonfly import (
     AppContext,
 )
 
-from lib.dynamic_aenea import (
-    GlobalDynamicContext,
+from aenea import (
     Key,
     Text,
 )
@@ -536,7 +535,7 @@ class RepeatRule(CompoundRule):
                 action.execute()
         release.execute()
 
-grammar = Grammar("Generic edit", context=GlobalDynamicContext())
+grammar = Grammar("Generic edit")
 grammar.add_rule(RepeatRule())  # Add the top-level rule.
 grammar.load()  # Load the grammar.
 

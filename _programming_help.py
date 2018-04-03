@@ -8,8 +8,7 @@ from dragonfly import (
     Grammar
 )
 
-from lib.dynamic_aenea import (
-    GlobalDynamicContext,
+from aenea import (
     Key,
     Text,
 )
@@ -76,7 +75,7 @@ series_rule = SeriesMappingRule(
     }
 )
 
-grammar = Grammar("Programming help", context=GlobalDynamicContext())
+grammar = Grammar("Programming help")
 grammar.add_rule(series_rule)
 grammar.load()
 
