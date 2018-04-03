@@ -5,13 +5,12 @@ from dragonfly import (
     Pause,
 )
 
-from lib.dynamic_aenea import (
+from aenea import (
     Key,
     Text,
 )
 
 from lib.text import specialCharacterTranslations, specialCharacterTranslationsRe
-
 
 letterMap = {
     "A\\letter": "alpha",
@@ -41,7 +40,6 @@ letterMap = {
     "Y\\letter": "yankee",
     "Z\\letter": "zulu",
 }
-
 
 class FormatTypes:
     camelCase = 1

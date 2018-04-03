@@ -2,8 +2,7 @@ import re
 
 from dragonfly.actions.keyboard import Keyboard
 
-from lib.dynamic_aenea import (
-    should_send_to_aenea,
+from aenea import (
     Text,
 )
 
@@ -56,14 +55,13 @@ class SCText(Text):  # Special Characters Text.
         # That's because this class is a subclass of the container, not of the Action itself.  So, in order to ensure
         # our overridden method is called on the correct Action, we must add an unbound copy of the method to each
         # of the Actions.
-        setattr(self._dragonfly_action, "_parse_spec", self._parse_spec)
-        setattr(self._aenea_action, "_parse_spec", self._parse_spec)
+        # setattr(self._dragonfly_action, "_parse_spec", self._parse_spec)
+        # setattr(self._aenea_action, "_parse_spec", self._parse_spec)
 
     def _parse_spec(self, spec):
         """Overrides the normal Text class behavior. To handle dictation of
         special characters like / . _
         Unfortunately, I have not found a better place to solve this.
-
         """
         events = []
         try:
@@ -81,14 +79,7 @@ class SCText(Text):  # Special Characters Text.
                     word = " " + word  # Adds spacing between normal words.
                 newText += word
             spec = parts[0] + newText + parts[1]
-            if should_send_to_aenea():
-                return spec
-            for character in spec:
-                if character in self._specials:
-                    typeable = self._specials[character]
-                else:
-                    typeable = Keyboard.get_typeable(character)
-                events.extend(typeable.events(self._pause))
+            return spec
         except Exception as e:
             print self._spec, parts
             print("Error: %s" % e)
