@@ -27,11 +27,20 @@ mapping = {
 
     # Workspaces
     "woke [<n>]": Key("scaw-%(n)d"),
-    "wix": Key("ca-right"),
-    "wox": Key("ca-left"),
+    "wix [<n>]": Key("ca-right:%(n)d"),
+    "wox [<n>]": Key("ca-left:%(n)d"),
 
     # Albert
-    "spot": Key("scaw-space"),
+    "spot [<text>]": Key("scaw-space/3") + Text("%(text)s"),
+    "spite [<text>]": Key("scaw-space/3") + Text("%(text)s") + Key("enter")
+
+    # Media
+    "[toggle] mute": Key("volmute"),
+    "louder": Key("volup"),
+    "softer": Key("voldown"),    
+    "next track": Key("tracknext"),
+    "last track": Key("trackprev"),
+    "(play|pause)": Key("playpause"),
 
 }
 
