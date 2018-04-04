@@ -14,8 +14,6 @@ from aenea import (
 
 import lib.format
 
-from aenea.proxy_contexts import ProxyAppContext as NixAppContext
-
 mapping = {
 
     # Files
@@ -37,7 +35,7 @@ mapping = {
     "Exit preview": Key("space, c-z"),
 
     # Navigation
-    "(go to | jump | jump to) <n>": Key("c-g") + Text("%(n)d") + Key("enter"),
+    "jump <n>": Key("c-g") + Text("%(n)d") + Key("enter"),
     "Go to definition": Key("f12"),
     "Go to required definition": Key("c-f12:2, c-right:5, left/50, f12"),
     "Go to (top | first line)": Key("c-home"),
@@ -46,16 +44,16 @@ mapping = {
     "Go forward [<n>]": Key("a-right"),
 
     # Editing
-    "indent [<n>]": Key("a-right"),
-    "outdent [<n>]": Key("a-left"),
-    "slop [<n>]": Key("c-enter"),
+    "indent [<n>]": Key("c-rbracket"),
+    "outdent [<n>]": Key("c-lbracket"),
+    "slide [<n>]": Key("c-enter"),
     "slip [<n>]": Key("cs-enter"),
     "comment": Key("c-slash"),
     "block comment": Key("sa-a"),
     "move up <n>": Key("a-up:%(n)d"),
     "move down <n>": Key("a-down:%(n)d"),
-    "take others": Key("cs-l"),
-    "take next": Key("cs-d"),
+    "take [all] others": Key("cs-l"),
+    "take next [<n>]": Key("c-d:%(n)d"),
     "scrup [<n>]": Key("a-up:%(n)d"),
     "scrown [<n>]": Key("a-down:%(n)d"),
     "scrup page [<n>]": Key("a-pgup:%(n)d"),
@@ -82,10 +80,6 @@ mapping = {
     "resume":                       Key("f5"),
 
 }
-
-nixContext1 = NixAppContext(executable="code-oss", title="Visual Studio Code")
-nixContext2 = NixAppContext(executable="code", title="Visual Studio Code")
-nixContext = nixContext1 | nixContext2
 
 class CommandRule(MappingRule):
     mapping = mapping
