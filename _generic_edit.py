@@ -86,16 +86,16 @@ def reload_natlink():
     Pause("10").execute()
     win.set_foreground()
 
-
 # For repeating of characters.
+# TODO: rename variables to stop confliction.
 specialCharMap = {
     "(bar|vertical bar|pipe)": "|",
     "(dash|minus|hyphen)": "-",
     "(dot|period)": ".",
-    "comma": ",",
+    "dit": ",",
     "backslash": "\\",
     "underscore": "_",
-    "(star|asterisk)": "*",
+    "(star|asterisk|splat)": "*",
     "colon": ":",
     "(semicolon|semi-colon)": ";",
     "at": "@",
@@ -108,7 +108,8 @@ specialCharMap = {
     "slash": "/",
     "equal": "=",
     "plus": "+",
-    "space": " "
+    "space": " ",
+    "bang": "!",
 }
 
 # Modifiers for the press-command.
@@ -379,7 +380,7 @@ grammarCfg = Config("multi edit")
 grammarCfg.cmd = Section("Language section")
 grammarCfg.cmd.map = Item(
     {
-        # Navigation keys.
+        # Navigation
         "up [<n>]": Key("up:%(n)d"),
         "up [<n>] slow": Key("up/15:%(n)d"),
         "down [<n>]": Key("down:%(n)d"),
@@ -390,31 +391,42 @@ grammarCfg.cmd.map = Item(
         "right [<n>] slow": Key("right/15:%(n)d"),
         "page up [<n>]": Key("pgup:%(n)d"),
         "page down [<n>]": Key("pgdown:%(n)d"),
-        "up <n> (page|pages)": Key("pgup:%(n)d"),
-        "down <n> (page|pages)": Key("pgdown:%(n)d"),
-        "left <n> (word|words)": Key("c-left/3:%(n)d/10"),
-        "right <n> (word|words)": Key("c-right/3:%(n)d/10"),
+        "left [<n>] (word|words)": Key("c-left/3:%(n)d/10"),
+        "right [<n>] (word|words)": Key("c-right/3:%(n)d/10"),
         "home": Key("home"),
-        "end": Key("end"),
+        "lend": Key("end"),
         "doc home": Key("c-home/3"),
         "doc end": Key("c-end/3"),
+
         # Selections
-        "take <n> up": release + Key("shift:down, up:%(n)d, shift:up"),
-        "take <n> down": release + Key("shift:down, down:%(n)d, shift:up"),
-        "take <n> right": release + Key("shift:down, right:%(n)d, shift:up"),
-        "take <n> left": release + Key("shift:down, left:%(n)d, shift:up"),
-        "take all": release + Key("c-a/3"),
-        # Functional keys.
+        "grab <n>": release + Key("shift:down, right:%(n)d, shift:up"),
+        "take <n>": release + Key("shift:down, left:%(n)d, shift:up"),
+        "take <n> (line|lines)": release + Key("shift:down, up:%(n)d, shift:up"),
+        "grab <n> (line|lines)": release + Key("shift:down, down:%(n)d, shift:up"),
+        "grab <n> (word|words)": release + Key("shift:down, c-right:%(n)d, shift:up"),
+        "take <n> (word|words)": release + Key("shift:down, c-left:%(n)d, shift:up"),
+        "(take|grab) home": release + Key("shift:down, home, shift:up"),
+        "(take|grab) end": release + Key("shift:down, end, shift:up"),
+        "(take|grab) line": release + Key("home, s-end"),
+        "(take|grab) all": release + Key("c-a/3"),
+
+        # Functional keys
+        "ace [<n>]":         Key("space:%(n)d"),
         "space": release + Key("space"),
         "space [<n>]": release + Key("space:%(n)d"),
         "slap [<n>]": release + Key("enter:%(n)d"),
-        "slide [<n>]": release + Key("end, enter:%(n)d")
+        "slide [<n>]": release + Key("end, enter:%(n)d"),
         "tab [<n>]": Key("tab:%(n)d"),
-        "chuck [<n>]": Key("del/3:%(n)d"),
-        "(chuck|scratch) [this] line": Key("home, s-end, del"),  # @IgnorePep8
+    
+        # Deletions
         "scratch [<n>]": release + Key("backspace:%(n)d"),
-        "app key": release + Key("apps/3"),
-        "mod key": release + Key("win/3"),
+        "chuck [<n>]": Key("del/3:%(n)d"),
+        "whack [<n>]": Key("shift:down, c-left/3:%(n)d/10, del, shift:up"),
+        "bump [<n>]": Key("shift:down, c-right/3:%(n)d/10, del, shift:up"),      
+        "scratch [this] line": Key("home, s-end, del"),  # @IgnorePep8
+        "chuck [this] line": Key("home:2, s-end, backspace:2"),
+
+        # Common functions
         "paste [that]": Function(paste_command),
         "copy [that]": Function(copy_command),
         "cut [that]": release + Key("c-x/3"),
@@ -422,7 +434,11 @@ grammarCfg.cmd.map = Item(
         "undo <n> [times]": release + Key("c-z/3:%(n)d"),
         "redo": release + Key("c-y/3"),
         "redo <n> [times]": release + Key("c-y/3:%(n)d"),
-        # Modifiers.
+        "quick save": release + Key("c-s"),
+
+        # Modifiers
+        "app key": release + Key("apps/3"),
+        "mod key": release + Key("win/3"),
         "[(hold|press)] alt": Key("alt:down/3"),
         "release alt": Key("alt:up"),
         "[(hold|press)] shift": Key("shift:down/3"),
@@ -430,17 +446,20 @@ grammarCfg.cmd.map = Item(
         "[(hold|press)] control": Key("ctrl:down/3"),
         "release control": Key("ctrl:up"),
         "release [all]": release,
-        # Closures.
+
+        # Closures
         "angles": Key("langle, rangle, left/3"),
         "squares": Key("lbracket, rbracket, left/3"),
         "braces": Key("lbrace, rbrace, left/3"),
         "parens": Key("lparen, rparen, left/3"),
         "quotes": Key("dquote/3, dquote/3, left/3"),
         "single quotes": Key("squote, squote, left/3"),
+
         # Shorthand multiple characters.
         "double <char>": Text("%(char)s%(char)s"),
         "triple <char>": Text("%(char)s%(char)s%(char)s"),
         "double escape": Key("escape, escape"),  # Exiting menus.
+
         # Punctuation and separation characters, for quick editing.
         "colon [<n>]": Key("colon/2:%(n)d"),
         "(semi-colon|semicolon) [<n>]": Key("semicolon/2:%(n)d"),
@@ -448,8 +467,10 @@ grammarCfg.cmd.map = Item(
         "(dot|period) [<n>]": Key("dot/2:%(n)d"),
         "(dash|hyphen|minus) [<n>]": Key("hyphen/2:%(n)d"),
         "underscore [<n>]": Key("underscore/2:%(n)d"),
+
         # To release keyboard capture by VirtualBox.
-        "press right control": Key("Control_R"),
+        # "press right control": Key("Control_R"),
+
         # Formatting <n> words to the left of the cursor.
         "camel <n> [words]": Function(camel_case_count),
         "pascal <n> [words]": Function(pascal_case_count),
@@ -477,6 +498,10 @@ grammarCfg.cmd.map = Item(
         "[<text>] (go to sleep|cancel and sleep) [<text2>]": Function(cancel_and_sleep),  # @IgnorePep8
         # Reload Natlink.
         # "reload Natlink": Function(reload_natlink),
+
+        "<number>": Text("%(number)s"),
+        "<letter>": Text("%(letter)s"),
+        "<specialChar>": Text("%(specialChar)s"),
     },
     namespace={
         "Key": Key,
@@ -509,6 +534,10 @@ class KeystrokeRule(MappingRule):
         Choice("formatType", formatMap),
         Choice("abbreviation", abbreviationMap),
         Choice("reservedWord", reservedWord),
+        Choice("number", numberMap),
+        Choice("letter", letterMap),
+        Choice("specialChar", specialCharMap),
+        
     ]
     defaults = {
         "n": 1,
