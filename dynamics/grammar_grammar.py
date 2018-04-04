@@ -30,25 +30,27 @@ INCOMPATIBLE_MODULES = [
 
 def new_key():
     Key("end").execute()
-    Text(": Key(\"\")").execute()
-    Key("left:2").execute()
+    Text(": Key(\"\"),").execute()
+    Key("left:3").execute()
 
 def new_text():
     Key("end").execute()
-    Text(": Text(\"\")").execute()
-    Key("left:2").execute()
+    Text(": Text(\"\"),").execute()
+    Key("left:3").execute()
 
 def new_function():
     Key("end").execute()
-    Text(": Function(\"\")").execute()
-    Key("left:2").execute()
+    Text(": Function(\"\"),").execute()
+    Key("left:3").execute()
 
 rules = MappingRule(
     mapping = {
         "new key": Function(new_key),
         "new text": Function(new_text),
         "left num": Text("<n>"),
-        "right num": Key("percent") + Text("(n)") + Key("d"),
+        "left text": Text("<text>"),
+        "right num": Key("percent") + Text("(n)d"),
+        "right text": Key("percent") + Text("()s") + Key("left:2"),
         "alt": Key("a"),
         "control": Key("c"),
         "shift": Key("s"),

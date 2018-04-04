@@ -102,7 +102,7 @@ specialCharMap = {
     "hat": "^",    
     "[double] quote": '"',
     "smote": "'",
-    "hash": "#",
+    "pound": "#",
     "cash": "$",
     "percy": "%",
     "amper": "&",
@@ -392,6 +392,7 @@ grammarCfg.cmd.map = Item(
         "right [<n>] (word|words)": Key("c-right/3:%(n)d/10"),
         "home": Key("home"),
         "lend": Key("end"),
+        "lendit": Key("end, comma")
         "doc home": Key("c-home/3"),
         "doc end": Key("c-end/3"),
 

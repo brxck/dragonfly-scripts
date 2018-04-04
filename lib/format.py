@@ -126,7 +126,16 @@ def format_dotify(text):
     words = strip_dragon_info(text)
     for word in words:
         if newText != "" and newText[-1:].isalnum() and word[-1:].isalnum():
-            word = "." + word  # Adds dashes between normal words.
+            word = "." + word  # Adds dots between normal words.
+        newText += word
+    return newText
+
+def format_hashify(text):
+    newText = ""
+    words = strip_dragon_info(text)
+    for word in words:
+        if newText != "" and newText[-1:].isalnum() and word[-1:].isalnum():
+            word = "#" + word  # Adds hashes between normal words.
         newText += word
     return newText
 

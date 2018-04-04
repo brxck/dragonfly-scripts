@@ -32,7 +32,7 @@ mapping = {
 
     # Albert
     "spot [<text>]": Key("scaw-space/3") + Text("%(text)s"),
-    "spite [<text>]": Key("scaw-space/3") + Text("%(text)s") + Key("enter")
+    "spite [<text>]": Key("scaw-space/3") + Text("%(text)s") + Key("enter"),
 
     # Media
     "[toggle] mute": Key("volmute"),
