@@ -28,30 +28,42 @@ INCOMPATIBLE_MODULES = [
     'python'
 ]
 
-def new_key(text):
-    Text("\"\": ").execute()
-    Key("left:2").execute()
-    lib.format.spoken_form(text)
+def new_key():
     Key("end").execute()
-    Text("Key()").execute()
-    Key("left").execute()   
+    Text(": Key(\"\")").execute()
+    Key("left:2").execute()
+
+def new_text():
+    Key("end").execute()
+    Text(": Text(\"\")").execute()
+    Key("left:2").execute()
+
+def new_function():
+    Key("end").execute()
+    Text(": Function(\"\")").execute()
+    Key("left:2").execute()
 
 rules = MappingRule(
     mapping = {
-      "new key": Function(new_key),
-      "left number": Text("<n>")
+        "new key": Function(new_key),
+        "new text": Function(new_text),
+        "left num": Text("<n>"),
+        "right num": Key("percent") + Text("(n)") + Key("d"),
+        "alt": Key("a"),
+        "control": Key("c"),
+        "shift": Key("s"),
+        "super": Key("w"),
     },
     extras=[
         IntegerRef("n", 1, 100),
         Dictation("text"),
-        Choice("iterator", iterator),
     ],
     defaults={
         "n": 1
     }
 )
 
-grammar = Grammar("Ruby grammar")
+grammar = Grammar("grammar grammar")
 grammar.add_rule(rules)
 grammar.load()
 grammar.disable()

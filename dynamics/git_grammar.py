@@ -15,7 +15,7 @@ from aenea import (
 )
 
 
-from lib.text import SCText
+from aenea import Text as SCText
 
 DYN_MODULE_NAME = "git"
 INCOMPATIBLE_MODULES = []

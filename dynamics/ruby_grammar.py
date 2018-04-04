@@ -79,7 +79,6 @@ rules = MappingRule(
         "block": Text("{ || }") + Key("left:3"),
         "block multi": Text("do ||") + Key("left"),
         "block (param|arg|variable|params|args|variables)": Text("||") + Key("left"),
-        "comment": Text("# "),
         "class": Text("class "),
         "class <text>": Function(define_class),
         "divided by": Text(" / "),

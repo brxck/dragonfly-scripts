@@ -11,7 +11,7 @@ from aenea import (
     Text,
 )
 
-from lib.text import SCText
+from aenea import Text as SCText
 import lib.format
 
 DYN_MODULE_NAME = "bash"
