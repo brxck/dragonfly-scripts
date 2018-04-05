@@ -18,30 +18,34 @@ mapping = {
 
     # Files
     "[open] command palette": Key("cs-p"),
-    "(Open [file] | Go to [tab]) [<text>]": Key("c-p") + Text("%(text)s"),
-    "Save file": Key("c-s"),
-    "Save and close": Key("c-s/10, c-w"),
+    "(open [file] | Go to [tab]) [<text>]": Key("c-p") + Text("%(text)s"),
+    "save file": Key("c-s"),
+    "save and close": Key("c-s/10, c-w"),
+    "new window": Key("cs-n"),
+    "new file": Key("c-n"),
     
     # Search
-    "(search | find in) [all] (files | codebase)": Key("cs-f"),
-    "(search | find) [file]": Key("c-f"),
+    "search [all] (files | codebase)": Key("cs-f"),
+    "find": Key("c-f"),
+    "find next <n>": Key("f3:%(n)d"),
+    "find last <n>": Key("s-f3:%(n)d"),    
     # "(Find | Jump [to]) next <text>": Function(findNthToken, n=1, direction="forward"),
     # "(Find | Jump [to]) previous <text>": Function(findNthToken, n=1, direction="reverse"),
 
     # Tabs
     "nexta [<n>]": Key("c-pgdown"),
     "prexta [<n>]": Key("c-pgup"),
-    "Close tab": Key("c-w"),
-    "Exit preview": Key("space, c-z"),
+    "close tab": Key("c-w"),
+    "exit preview": Key("space, c-z"),
 
     # Navigation
     "jump <n>": Key("c-g") + Text("%(n)d") + Key("enter"),
-    "Go to definition": Key("f12"),
-    "Go to required definition": Key("c-f12:2, c-right:5, left/50, f12"),
-    "Go to (top | first line)": Key("c-home"),
-    "Go to ( bottom | last line)": Key("c-end"),
-    "Go back [<n>]": Key("a-left"),
-    "Go forward [<n>]": Key("a-right"),
+    "go to definition": Key("f12"),
+    "go to required definition": Key("c-f12:2, c-right:5, left/50, f12"),
+    "go to (top | first line)": Key("c-home"),
+    "go to ( bottom | last line)": Key("c-end"),
+    "go back [<n>]": Key("a-left"),
+    "go forward [<n>]": Key("a-right"),
 
     # Editing
     "indent [<n>]": Key("c-rbracket"),

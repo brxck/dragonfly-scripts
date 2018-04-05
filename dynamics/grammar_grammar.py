@@ -55,6 +55,7 @@ rules = MappingRule(
         "control": Key("c"),
         "shift": Key("s"),
         "super": Key("w"),
+        "section": Text("### "),
     },
     extras=[
         IntegerRef("n", 1, 100),
