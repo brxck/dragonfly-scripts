@@ -26,9 +26,12 @@ mapping = {
     "flop": Key("sa-tab"),
 
     # Workspaces
-    "woke [<n>]": Key("scaw-%(n)d"),
+    "woke <n>": Key("caw-%(n)d"),
     "wix [<n>]": Key("ca-right:%(n)d"),
     "wox [<n>]": Key("ca-left:%(n)d"),
+    "snap wix [<n>]": Key("sca-right:%(n)d"),
+    "snap wox [<n>]": Key("sca-left:%(n)d"), 
+    "snap woke <n>": Key("scaw-%(n)d"),
 
     # Albert
     "spot [<text>]": Key("scaw-space/3") + Text("%(text)s"),

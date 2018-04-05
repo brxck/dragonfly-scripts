@@ -51,6 +51,7 @@ class FormatTypes:
     dashify = 7
     dotify = 8
     spokenForm = 9
+    sentence = 10
 
 
 def strip_dragon_info(text):
@@ -169,6 +170,13 @@ def format_lower_case(text):
     return newText
 
 
+def format_sentence(text):
+    newText = ""
+    words = strip_dragon_info(text)
+    newText = ' '.join([words[0].capitalize()] + words[1:])
+    return newText
+
+
 def format_spoken_form(text):
     newText = ""
     words = extract_dragon_info(text)
@@ -189,6 +197,7 @@ FORMAT_TYPES_MAP = {
     FormatTypes.dashify: format_dashify,
     FormatTypes.dotify: format_dotify,
     FormatTypes.spokenForm: format_spoken_form,
+    FormatTypes.sentence: format_sentence,
 }
 
 
