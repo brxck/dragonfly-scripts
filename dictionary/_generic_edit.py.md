@@ -2,304 +2,304 @@
 
 command | action
 --- | ---
-take \<n> (line|lines) | release + Key("end, shift:down, home, up:[xn], home, shift:up")
-golf | "g"
-java archive | "jar"
-pope | "p"
-camel | ft.camelCase
-cut [that] | release + Key("c-x/3")
-text | "txt"
-(direction|directory) | "dir"
-dynamic | "dyn"
-(take|grab) line | release + Key("home, s-end")
-dose | "2"
+(bar\|vertical bar\|pipe) | "|"
+(dash\|minus\|hyphen) | "-"
+(dot\|period) | "."
+drip | ","
+backslash | "\\"
+rail | "_"
+splat | "*"
+colon | ":"
+semi | ";"
+at | "@"
+hat | "^"
+[double] quote | '"'
+smote | "'"
+pound | "#"
+cash | "$"
 percy | "%"
-quotes | Key("dquote/3, dquote/3, left/3")
-pascal | ft.pascalCase
-down [\<n>] | Key("down:[xn]")
-[(hold|press)] control | Key("ctrl:down/3")
+amp | "&"
+slash | "/"
+equal | "="
+cross | "+"
+bang | "!"
+backtick | "`"
 tilde | "~"
-F two | 'f2'
-alt | "alt"
-(initialize|initializer) | "init"
-previous | "prev"
+quest | "?"
 left brace | "{"
-redo \<n> [times] | release + Key("c-y/3:[xn]")
-cut | "cut"
+right brace | "}"
+push | "("
+pop | ")"
+left square | "["
+right square | "]"
+alt | "alt"
+control | "ctrl"
+shift | "shift"
+super | "win"
+ares | "a"
+beer | "b"
+cork | "c"
+delta | "d"
+echo | "e"
+fox | "f"
+golf | "g"
+hail | "h"
+ice | "i"
+juke | "j"
+kilo | "k"
+lima | "l"
+mew | "m"
+nike | "n"
+orc | "o"
+pope | "p"
+quack | "q"
+rho | "r"
+styx | "s"
+tau | "t"
+uniform | "u"
+vie | "v"
+whisk | "w"
+x-ray | "x"
+yoke | "y"
 zed | "z"
-integer | "int"
+zero | "0"
+uno | "1"
+dose | "2"
+trace | "3"
+quatro | "4"
+cinco | "5"
+sace | "6"
+siete | "7"
+ocho | "8"
+newevay | "9"
+left | "left"
+right | "right"
+up | "up"
+down | "down"
+page up | "page up"
+page down | "page down"
+home | Key("home")
+end | "end"
+space | release + Key("space")
+(enter\|return) | "enter"
+escape | "escape"
+F one | 'f1'
+F two | 'f2'
+F three | 'f3'
+F four | 'f4'
+F five | 'f5'
+F six | 'f6'
+F seven | 'f7'
+F eight | 'f8'
+F nine | 'f9'
+F ten | 'f10'
+F eleven | 'f11'
+F twelve | 'f12'
+camel | ft.camelCase
+pascal | ft.pascalCase
+snake | ft.snakeCase
+(uppercase\|shout) | ft.upperCase
+(lowercase\|low) | ft.lowerCase
+squash | "squash"
+(lowercase\|low) squash | [ft.squash, ft.lowerCase]
+(uppercase\|shout) squash | [ft.squash, ft.upperCase]
+squash lowercase | [ft.squash, ft.lowerCase]
+squash (uppercase\|shout) | [ft.squash, ft.upperCase]
+dashify | ft.dashify
+(lowercase\|low) dashify | [ft.dashify, ft.lowerCase]
+(uppercase\|shout) dashify | [ft.dashify, ft.upperCase]
+dashify lowercase | [ft.dashify, ft.lowerCase]
+dashify (uppercase\|shout) | [ft.dashify, ft.upperCase]
+dotify | ft.dotify
+(lowercase\|low) dotify | [ft.dotify, ft.lowerCase]
+(uppercase\|shout) dotify | [ft.dotify, ft.upperCase]
+dotify lowercase | [ft.dotify, ft.lowerCase]
+dotify (uppercase\|shout) | [ft.dotify, ft.upperCase]
+say | "say"
+environment variable | [ft.snakeCase, ft.upperCase]
+speak | ft.sentence
+administrator | "admin"
+administrators | "admins"
+application | "app"
+applications | "apps"
+argument | "arg"
+arguments | "args"
+attribute | "attr"
+attributes | "attrs"
+(authenticate\|authentication) | "auth"
+binary | "bin"
+button | "btn"
+class | "cls"
+command | "cmd"
+(config\|configuration) | "cfg"
+context | "ctx"
+database | "db"
+(define\|definition) | "def"
+description | "desc"
+(develop\|development) | "dev"
+(dictionary\|dictation) | "dict"
+(direction\|directory) | "dir"
+dynamic | "dyn"
+example | "ex"
+execute | "exec"
+exception | "exc"
+expression | "exp"
+(extension\|extend) | "ext"
+function | "func"
+framework | "fw"
+(initialize\|initializer) | "init"
 instance | "inst"
-(extension|extend) | "ext"
-colon [\<n>] | Key("colon/2:[xn]")
-(enter|return) | "enter"
-(dash|hyphen|minus) [\<n>] | Key("hyphen/2:[xn]")
-double \<char> | Text("[xchar][xchar]")
+integer | "int"
+iterate | "iter"
+java archive | "jar"
+javascript | "js"
+keyword | "kw"
+keyword arguments | "kwargs"
+language | "lng"
+library | "lib"
+length | "len"
+number | "num"
+object | "obj"
+okay | "ok"
+package | "pkg"
+parameter | "param"
+parameters | "params"
+pixel | "px"
+position | "pos"
+point | "pt"
+previous | "prev"
+property | "prop"
+python | "py"
+query string | "qs"
+reference | "ref"
+references | "refs"
+(represent\|representation) | "repr"
+regular (expression\|expressions) | "regex"
+request | "req"
+revision | "rev"
+ruby | "rb"
 session aidee | "sid"
 source | "src"
-window | "win"
-query string | "qs"
-(lowercase|low) dashify | [ft.dashify, ft.lowerCase]
-backspace | "backspace"
-save | release + Key("c-s")
-hat | "^"
-pixel | "px"
-juke | "j"
-string | "str"
-python | "py"
-press \<modifierSingle> | Key("[xmodifierSingle]")
-utilities | "utils"
-page up | "page up"
-execute | "exec"
-(take|grab) end | release + Key("shift:down, end, shift:up")
-period | "period"
-framework | "fw"
-bang | "!"
-quest | "?"
-pop | ")"
-underscore | "underscore"
-keyword arguments | "kwargs"
-amp | "&"
-[double] quote | '"'
-nab [that] | Function(paste_command)
-standard out | "stdout"
-slide [\<n>] | release + Key("end, enter:[xn]")
-page down | "page down"
-squares | Key("lbracket, rbracket, left/3")
-grab \<n> (word|words) | release + Key("shift:down, c-right:[xn], shift:up")
-whisk | "w"
-semi | ";"
-page [\<n>] | Key("pgdown:[xn]")
-button | "btn"
-pinch [\<n>] | Key("pgup:[xn]")
-scratch [\<n>] | release + Key("backspace:[xn]")
-Text | Text
-release | "release"
-references | "refs"
-(config|configuration) | "cfg"
-app key | release + Key("apps/3")
-squash (uppercase|shout) | [ft.squash, ft.upperCase]
-undo \<n> [times] | release + Key("c-z/3:[xn]")
-right | "right"
-scratch [this] line | Key("home, s-end, del")
-reference | "ref"
-underscore [\<n>] | Key("underscore/2:[xn]")
-short \<abbreviation> | Text("[xabbreviation]")
-uppercase | "uppercase"
-temporary | "tmp"
-kilo | "k"
-ocho | "8"
-hail | "h"
-cash | "$"
-zero | "0"
-escape | "escape"
-uppercase \<n> [words] | Function(uppercase_count)
-home | Key("home")
-doc end | Key("c-end/3")
-\<number> | Text("[xnumber]")
-left [\<n>] (word|words) | Key("c-left/3:[xn]/10")
-F ten | 'f10'
-(dot|period) [\<n>] | Key("dot/2:[xn]")
-space | release + Key("space")
-fox | "f"
-ice | "i"
-uniform | "u"
-(dictionary|dictation) | "dict"
-F five | 'f5'
-dashify | ft.dashify
-slash | "/"
-(develop|development) | "dev"
-tab [\<n>] | Key("tab:[xn]")
-utility | "util"
-\<letter> | Text("[xletter]")
-squash \<n> [words] | Function(squash_count)
-parens | Key("lparen, rparen, left/3")
-Key | Key
-[(hold|press)] shift | Key("shift:down/3")
-standard in | "stdin"
-(special|specify|specific|specification) | "spec"
-whack [\<n>] | Key("shift:down, c-left/3:[xn]/10, del, shift:up")
-javascript | "js"
-bump [\<n>] | Key("shift:down, c-right/3:[xn]/10, del, shift:up")
-snake | ft.snakeCase
-cork | "c"
-F six | 'f6'
-mew | "m"
-yoke | "y"
-undo | release + Key("c-z/3")
-drop [\<n>] | release + Key("enter:[xn]")
-take \<n> (word|words) | release + Key("shift:down, c-left:[xn], shift:up")
-\<specialChar> | Text("[xspecialChar]")
-(lowercase|low) | ft.lowerCase
+(special\|specify\|specific\|specification) | "spec"
 standard | "std"
-super | "win"
-orc | "o"
-single quotes | Key("squote, squote, left/3")
-quack | "q"
-property | "prop"
-parameters | "params"
-language | "lng"
-package | "pkg"
-shift | "shift"
-press \<modifier1> \<modifier2> \<pressKey> [\<n>] | Key("[xmodifier1][xmodifier2]-[xpressKey]:[xn]")
-(lowercase|low) squash | [ft.squash, ft.lowerCase]
-equal | "="
-minus | "minus"
-length | "len"
-context | "ctx"
-act | Key("escape")
-(uppercase|shout) | ft.upperCase
-left [\<n>] | Key("left:[xn]")
-expression | "exp"
-uno | "1"
-sace | "6"
-braces | Key("lbrace, rbrace, left/3")
-mod key | release + Key("win/3")
-angles | Key("langle, rangle, left/3")
-abbreviate | "abbreviate"
-vie | "v"
-hyphen | "hyphen"
-press \<modifier1> \<pressKey> [\<n>] | Key("[xmodifier1]-[xpressKey]:[xn]")
-number | "num"
-backtick | "`"
-echo | "e"
-down | "down"
-environment variable | [ft.snakeCase, ft.upperCase]
-colon | ":"
-(bar|vertical bar|pipe) | "|"
-(uppercase|shout) dotify | [ft.dotify, ft.upperCase]
-lima | "l"
-redo | release + Key("c-y/3")
-select | "select"
-speak | ft.sentence
-siete | "7"
-dotify lowercase | [ft.dotify, ft.lowerCase]
-expand \<n> [words] | Function(expand_count)
-triple \<char> | Text("[xchar][xchar][xchar]")
-smote | "'"
-[\<text>] (go to sleep|cancel and sleep) [\<text2>] | Function(cancel_and_sleep)
-paste | "paste"
+standard in | "stdin"
+standard out | "stdout"
+string | "str"
+(synchronize\|synchronous) | "sync"
 system | "sys"
-F one | 'f1'
-grab \<n> (line|lines) | release + Key("home, shift:down, down:[xn], end, shift:up")
-beer | "b"
-(uppercase|shout) dashify | [ft.dashify, ft.upperCase]
-ares | "a"
-right [\<n>] | Key("right:[xn]")
-function | "func"
-pascal \<n> [words] | Function(pascal_case_count)
-dotify | ft.dotify
-squash | "squash"
-[(hold|press)] alt | Key("alt:down/3")
-argument | "arg"
-administrators | "admins"
-cinco | "5"
-lendit | Key("end, comma")
-select all | "select all"
-F eight | 'f8'
-library | "lib"
-quatro | "4"
-delta | "d"
-semi-colon | "semi-colon"
-copy | "copy"
-ruby | "rb"
-release [all] | release
-exception | "exc"
-doc home | Key("c-home/3")
-squash lowercase | [ft.squash, ft.lowerCase]
-F three | 'f3'
-keyword | "kw"
-release control | Key("ctrl:up")
-(add|fix) missing space | Key("c-left/3, space, c-right/3")
-(represent|representation) | "repr"
-database | "db"
-up | "up"
+utility | "util"
+utilities | "utils"
+temporary | "tmp"
+text | "txt"
 value | "val"
-n | 1
-(delete|remove) (double|extra) (space|whitespace) | Key("c-left/3, backspace, c-right/3")
-(dot|period) | "."
-(take|grab) all | release + Key("c-a/3")
-say | "say"
-example | "ex"
-x-ray | "x"
-delete | "delete"
-control | "ctrl"
-tau | "t"
-pound | "#"
+window | "win"
 tab | "tab"
-styx | "s"
-space [\<n>] | release + Key("space:[xn]")
-attribute | "attr"
-right square | "]"
-backslash | "\\"
-dash | "dash"
-(delete|remove) (double|extra) (type|char|character) | Key("c-left/3, del, c-right/3")
-newevay | "9"
-(take|grab) home | release + Key("shift:down, home, shift:up")
-take \<n> | release + Key("shift:down, left:[xn], shift:up")
-at | "@"
-point | "pt"
-say \<reservedWord> | Text("[xreservedWord]")
-F twelve | 'f12'
-copy [that] | Function(copy_command)
-\<formatType> \<text> | Function(format_text)
-chuck [\<n>] | Key("del/3:[xn]")
-binary | "bin"
-end | "end"
-double escape | Key("escape, escape")
-nike | "n"
-(uppercase|shout) squash | [ft.squash, ft.upperCase]
-F four | 'f4'
-cross | "+"
-right [\<n>] (word|words) | Key("c-right/3:[xn]/10")
-dashify lowercase | [ft.dashify, ft.lowerCase]
-application | "app"
-arguments | "args"
-regular (expression|expressions) | "regex"
-(authenticate|authentication) | "auth"
-parameter | "param"
-revision | "rev"
-(semi-colon|semicolon) [\<n>] | Key("semicolon/2:[xn]")
-administrator | "admin"
-camel \<n> [words] | Function(camel_case_count)
-okay | "ok"
-description | "desc"
-trace | "3"
-lend | Key("end")
-right brace | "}"
-class | "cls"
-object | "obj"
-rail | "_"
-(define|definition) | "def"
-snake \<n> [words] | Function(snake_case_count)
-left square | "["
-lowercase \<n> [words] | Function(lowercase_count)
-applications | "apps"
-(dash|minus|hyphen) | "-"
-release alt | Key("alt:up")
-rho | "r"
-attributes | "attrs"
-lowercase | "lowercase"
-iterate | "iter"
-chuck [this] line | Key("home:2, s-end, backspace:2")
-splat | "*"
-expand | "expand"
-F eleven | 'f11'
-release shift | Key("shift:up")
-F nine | 'f9'
-dotify (uppercase|shout) | [ft.dotify, ft.upperCase]
-(lowercase|low) dotify | [ft.dotify, ft.lowerCase]
-up [\<n>] | Key("up:[xn]")
-grab \<n> | release + Key("shift:down, right:[xn], shift:up")
-request | "req"
-drip | ","
-comma [\<n>] | Key("comma/2:[xn]")
-(synchronize|synchronous) | "sync"
-command | "cmd"
-dot | "dot"
-(take|grab) word | Key("c-left, sc-right")
+backspace | "backspace"
+delete | "delete"
 enter | "enter"
-push | "("
-position | "pos"
-dashify (uppercase|shout) | [ft.dashify, ft.upperCase]
-F seven | 'f7'
-left | "left"
+paste | "paste"
+copy | "copy"
+cut | "cut"
+undo | release + Key("c-z/3")
+release | "release"
+select | "select"
+select all | "select all"
+abbreviate | "abbreviate"
+uppercase | "uppercase"
+lowercase | "lowercase"
+expand | "expand"
+dash | "dash"
+underscore | "underscore"
+dot | "dot"
+period | "period"
+minus | "minus"
+semi-colon | "semi-colon"
+hyphen | "hyphen"
+up [\<n>] | Key("up:[n]")
+down [\<n>] | Key("down:[n]")
+left [\<n>] | Key("left:[n]")
+right [\<n>] | Key("right:[n]")
+pinch [\<n>] | Key("pgup:[n]")
+page [\<n>] | Key("pgdown:[n]")
+left [\<n>] (word\|words) | Key("c-left/3:[n]/10")
+right [\<n>] (word\|words) | Key("c-right/3:[n]/10")
+lend | Key("end")
+lendit | Key("end, comma")
+doc home | Key("c-home/3")
+doc end | Key("c-end/3")
+grab \<n> | release + Key("shift:down, right:[n], shift:up")
+take \<n> | release + Key("shift:down, left:[n], shift:up")
+take \<n> (line\|lines) | release + Key("end, shift:down, home, up:[n], home, shift:up")
+grab \<n> (line\|lines) | release + Key("home, shift:down, down:[n], end, shift:up")
+grab \<n> (word\|words) | release + Key("shift:down, c-right:[n], shift:up")
+take \<n> (word\|words) | release + Key("shift:down, c-left:[n], shift:up")
+(take\|grab) word | Key("c-left, sc-right")
+(take\|grab) home | release + Key("shift:down, home, shift:up")
+(take\|grab) end | release + Key("shift:down, end, shift:up")
+(take\|grab) line | release + Key("home, s-end")
+(take\|grab) all | release + Key("c-a/3")
+act | Key("escape")
+space [\<n>] | release + Key("space:[n]")
+drop [\<n>] | release + Key("enter:[n]")
+slide [\<n>] | release + Key("end, enter:[n]")
+tab [\<n>] | Key("tab:[n]")
+scratch [\<n>] | release + Key("backspace:[n]")
+chuck [\<n>] | Key("del/3:[n]")
+whack [\<n>] | Key("shift:down, c-left/3:[n]/10, del, shift:up")
+bump [\<n>] | Key("shift:down, c-right/3:[n]/10, del, shift:up")
+scratch [this] line | Key("home, s-end, del")
+chuck [this] line | Key("home:2, s-end, backspace:2")
+dump [that] | Function(paste_command)
+nab [that] | Function(copy_command)
+cut [that] | release + Key("c-x/3")
+undo \<n> [times] | release + Key("c-z/3:[n]")
+redo | release + Key("c-y/3")
+redo \<n> [times] | release + Key("c-y/3:[n]")
+save | release + Key("c-s")
+app key | release + Key("apps/3")
+mod key | release + Key("win/3")
+[(hold\|press)] alt | Key("alt:down/3")
+release alt | Key("alt:up")
+[(hold\|press)] shift | Key("shift:down/3")
+release shift | Key("shift:up")
+[(hold\|press)] control | Key("ctrl:down/3")
+release control | Key("ctrl:up")
+release [all] | release
+angles | Key("langle, rangle, left/3")
+squares | Key("lbracket, rbracket, left/3")
+braces | Key("lbrace, rbrace, left/3")
+parens | Key("lparen, rparen, left/3")
+quotes | Key("dquote/3, dquote/3, left/3")
+single quotes | Key("squote, squote, left/3")
+double \<char> | Text("[char][char]")
+triple \<char> | Text("[char][char][char]")
+double escape | Key("escape, escape")
+colon [\<n>] | Key("colon/2:[n]")
+(semi-colon\|semicolon) [\<n>] | Key("semicolon/2:[n]")
+comma [\<n>] | Key("comma/2:[n]")
+(dot\|period) [\<n>] | Key("dot/2:[n]")
+(dash\|hyphen\|minus) [\<n>] | Key("hyphen/2:[n]")
+underscore [\<n>] | Key("underscore/2:[n]")
+camel \<n> [words] | Function(camel_case_count)
+pascal \<n> [words] | Function(pascal_case_count)
+snake \<n> [words] | Function(snake_case_count)
+squash \<n> [words] | Function(squash_count)
+expand \<n> [words] | Function(expand_count)
+uppercase \<n> [words] | Function(uppercase_count)
+lowercase \<n> [words] | Function(lowercase_count)
+\<formatType> \<text> | Function(format_text)
+say \<reservedWord> | Text("[reservedWord]")
+short \<abbreviation> | Text("[abbreviation]")
+(add\|fix) missing space | Key("c-left/3, space, c-right/3")
+(delete\|remove) (double\|extra) (space\|whitespace) | Key("c-left/3, backspace, c-right/3")
+(delete\|remove) (double\|extra) (type\|char\|character) | Key("c-left/3, del, c-right/3")
+[\<text>] (go to sleep\|cancel and sleep) [\<text2>] | Function(cancel_and_sleep)
+\<number> | Text("[number]")
+\<letter> | Text("[letter]")
+\<specialChar> | Text("[specialChar]")
+Key | Key
+Text | Text
+press \<modifierSingle> | Key("[modifierSingle]")
+press \<modifier1> \<pressKey> [\<n>] | Key("[modifier1]-[pressKey]:[n]")
+press \<modifier1> \<modifier2> \<pressKey> [\<n>] | Key("[modifier1][modifier2]-[pressKey]:[n]")
+n | 1

@@ -2,6 +2,7 @@ import os.path
 import glob
 import re
 import fileinput
+from collections import OrderedDict
 
 class Dictionary:
   def __init__(self, grammar):
@@ -9,7 +10,7 @@ class Dictionary:
     self.name = os.path.basename(grammar)
     self.file = os.path.normpath("../dictionary/" + self.name + ".md")
     self.matches = []
-    self.rules = {}
+    self.rules = OrderedDict()
 
   def scan_grammar(self):
     for line in fileinput.input(self.grammar):
@@ -19,17 +20,24 @@ class Dictionary:
 
   def parse_matches(self):
     for match in self.matches:
-      command = re.sub("<", "\<", match.group(1))
-      action = re.sub(r"%\((?P<inter>\w+)\)\w", r"[x\g<inter>]", match.group(2))
+      command = re.sub(r"<", r"\<", match.group(1))
+      command = re.sub(r"\|", r"\\|", command)      
+      action = re.sub(r"%\((?P<inter>\w+)\)\w", r"[\g<inter>]", match.group(2))
       self.rules[command] = action
+
+  def write_header(self, f):
+    f.write("# " + self.name + "\n\n")
+    f.write("command | action\n")
+    f.write("--- | ---\n")
+
+  def write_definitions(self, f):
+    for command, action in self.rules.iteritems():
+      f.write(command + " | " + action + "\n")
 
   def write_dictionary(self):
     with open(self.file, "w+") as f:
-      f.write("# " + self.name + "\n\n")
-      f.write("command | action\n")
-      f.write("--- | ---\n")
-      for command, action in self.rules.iteritems():
-        f.write(command + " | " + action + "\n")
+      self.write_header(f)
+      self.write_definitions(f)
       f.truncate()
 
   def execute(self):

@@ -435,8 +435,8 @@ grammarCfg.cmd.map = Item(
         "chuck [this] line": Key("home:2, s-end, backspace:2"),
 
         # Common functions
-        "nab [that]": Function(paste_command),
-        "copy [that]": Function(copy_command),
+        "dump [that]": Function(paste_command),
+        "nab [that]": Function(copy_command),
         "cut [that]": release + Key("c-x/3"),
         "undo": release + Key("c-z/3"),
         "undo <n> [times]": release + Key("c-z/3:%(n)d"),

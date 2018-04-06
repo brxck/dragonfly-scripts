@@ -44,7 +44,7 @@ mapping = {
     "go to definition": Key("f12"),
     "go to required definition": Key("c-f12:2, c-right:5, left/50, f12"),
     "go to (top | first line)": Key("c-home"),
-    "go to ( bottom | last line)": Key("c-end")
+    "go to ( bottom | last line)": Key("c-end"),
 
     # Editing
     "indent [<n>]": Key("c-rbracket"),
