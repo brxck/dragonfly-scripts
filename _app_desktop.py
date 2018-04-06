@@ -22,8 +22,9 @@ mapping = {
     "snap close": Key("c-w"),
     "snap quit": Key("c-q"),    
     "snap full": Key("f11"),
-    "flip": Key("a-tab"),
-    "flop": Key("sa-tab"),
+    "flip": Key("a-escape"),
+    "flop": Key("sa-escape"),
+    "flap": Key("a-tab"),
 
     # Workspaces
     "woke <n>": Key("caw-%(n)d"),

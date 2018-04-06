@@ -19,6 +19,7 @@ mapping = {
     # Files
     "[open] command palette": Key("cs-p"),
     "(open [file] | Go to [tab]) [<text>]": Key("c-p") + Text("%(text)s"),
+    "open folder": Key("c-k/3, c-s"),
     "save file": Key("c-s"),
     "save and close": Key("c-s/10, c-w"),
     "new window": Key("cs-n"),
@@ -33,8 +34,8 @@ mapping = {
     # "(Find | Jump [to]) previous <text>": Function(findNthToken, n=1, direction="reverse"),
 
     # Tabs
-    "nexta [<n>]": Key("c-pgdown"),
-    "prexta [<n>]": Key("c-pgup"),
+    "nexta [<n>]": Key("c-pgdown:%(n)d"),
+    "prexta [<n>]": Key("c-pgup:%(n)d"),
     "close tab": Key("c-w"),
     "exit preview": Key("space, c-z"),
 
@@ -43,9 +44,7 @@ mapping = {
     "go to definition": Key("f12"),
     "go to required definition": Key("c-f12:2, c-right:5, left/50, f12"),
     "go to (top | first line)": Key("c-home"),
-    "go to ( bottom | last line)": Key("c-end"),
-    "go back [<n>]": Key("a-left"),
-    "go forward [<n>]": Key("a-right"),
+    "go to ( bottom | last line)": Key("c-end")
 
     # Editing
     "indent [<n>]": Key("c-rbracket"),
