@@ -1,6 +1,7 @@
 # git_grammar.py
 
 command | action
+--- | ---
 all | "--all"
 help | "--help"
 show | "show"

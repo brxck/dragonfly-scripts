@@ -25,6 +25,7 @@ class Dictionary:
     with open(self.file, "w+") as f:
       f.write("# " + self.name + "\n\n")
       f.write("command | action\n")
+      f.write("--- | ---\n")
       for command, action in self.rules.iteritems():
         f.write(command + " | " + action + "\n")
       f.truncate()

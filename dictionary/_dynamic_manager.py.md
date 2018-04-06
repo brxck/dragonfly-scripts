@@ -1,6 +1,7 @@
 # _dynamic_manager.py
 
 command | action
+--- | ---
 show dynamic [(mode|modes)] status | Function(show_module_status)
 enable <module> and <module2> mode only | Function(enable_modules, disableOthers=True)
 enable <module> mode only | Function(enable_modules, disableOthers=True)

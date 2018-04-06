@@ -1,6 +1,7 @@
 # _app_desktop.py
 
 command | action
+--- | ---
 snap screen | Key("w-up")
 snap wox [<n>] | Key("sca-left:%(n)d")
 louder | Key("volup")

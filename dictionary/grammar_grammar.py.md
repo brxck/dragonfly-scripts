@@ -1,6 +1,7 @@
 # grammar_grammar.py
 
 command | action
+--- | ---
 control | Key("c")
 left num | Text("<n>")
 left text | Text("<text>")

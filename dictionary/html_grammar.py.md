@@ -1,6 +1,7 @@
 # html_grammar.py
 
 command | action
+--- | ---
 [start] tag <element> | Function(start_tag)
 code | "code"
 (dir|direction) | "dir"

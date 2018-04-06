@@ -1,6 +1,7 @@
 # _app_vscode.py
 
 command | action
+--- | ---
 exit preview | Key("space, c-z")
 comment | Key("c-slash")
 move up <n> | Key("a-up:%(n)d")

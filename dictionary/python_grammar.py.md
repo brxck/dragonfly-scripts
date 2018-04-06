@@ -1,6 +1,7 @@
 # python_grammar.py
 
 command | action
+--- | ---
 and | Text(" and ")
 comment | Text("# ")
 return <text> | SCText("return %(text)s")

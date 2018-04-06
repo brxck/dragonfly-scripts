@@ -1,6 +1,7 @@
 # _app_ff_chrome_opera.py
 
 command | action
+--- | ---
 [go to] next tab [<n>] | Key("c-tab:%(n)d")
 find next [<n>] | Key("f3/10:%(n)d")
 go to bottom | Key("end")

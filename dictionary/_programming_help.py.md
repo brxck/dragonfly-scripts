@@ -1,6 +1,7 @@
 # _programming_help.py
 
 command | action
+--- | ---
 dot C S | Text(".cs")
 foobar | Text("foobar")
 dot T X T | Text(".txt")

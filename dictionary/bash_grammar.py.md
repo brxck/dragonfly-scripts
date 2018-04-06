@@ -1,6 +1,7 @@
 # bash_grammar.py
 
 command | action
+--- | ---
 X M L lint format | Text("xmllint -format ")
 sudo apt get update | Text("sudo apt-get update") + Key("enter")
 list files | Text("ls -la") + Key("enter")

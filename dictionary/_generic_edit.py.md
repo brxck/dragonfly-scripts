@@ -1,6 +1,7 @@
 # _generic_edit.py
 
 command | action
+--- | ---
 golf | "g"
 java archive | "jar"
 pope | "p"

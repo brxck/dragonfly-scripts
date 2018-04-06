@@ -1,6 +1,7 @@
 # ruby_grammar.py
 
 command | action
+--- | ---
 log warn | Text("logger.warn {  }") + Key("left:2")
 all | "all?"
 (def|define|definition) initialize | Text("def initialize()") + Key("left")

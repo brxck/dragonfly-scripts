@@ -1,6 +1,7 @@
 # javascript_grammar.py
 
 command | action
+--- | ---
 and | Text(" && ")
 comment | Text("// ")
 return <text> | SCText("return %(text)s")

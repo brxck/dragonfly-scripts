@@ -1,6 +1,7 @@
 # _slim.py
 
 command | action
+--- | ---
 code | "code"
 (dir|direction) | "dir"
 keytype | "keytype"

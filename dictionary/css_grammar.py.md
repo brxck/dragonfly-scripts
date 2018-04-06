@@ -1,6 +1,7 @@
 # css_grammar.py
 
 command | action
+--- | ---
 comment | Text("/*  */") + Key("left/3:3")
 counter-reset | "counter-reset"
 counter-increment | "counter-increment"
