@@ -15,28 +15,35 @@ class Dictionary:
   def scan_grammar(self):
     for line in fileinput.input(self.grammar):
       match = pattern.search(line)
-      if match != None:
+      if match:
         self.matches.append(match)
 
   def parse_matches(self):
-    for match in self.matches:
-      command = re.sub(r"<", r"\<", match.group(1))
-      command = re.sub(r"\|", r"\\|", command)      
-      action = re.sub(r"%\((?P<inter>\w+)\)\w", r"[\g<inter>]", match.group(2))
-      self.rules[command] = action
+    for i, match in enumerate(self.matches):
+      if match.groupdict()["section"]:
+        self.rules["section" + str(i)] = match.groupdict()["section"]
+      else:
+        command = re.sub(r"<", r"\<", match.groupdict()["command"])
+        command = re.sub(r"\|", r"\\|", command)      
+        action = re.sub(r"%\((?P<inter>\w+)\)\w", r"[\g<inter>]", match.groupdict()["action"])
+        self.rules[command] = action
 
-  def write_header(self, f):
-    f.write("# " + self.name + "\n\n")
+  def write_table(self, f):
     f.write("command | action\n")
     f.write("--- | ---\n")
 
   def write_definitions(self, f):
-    for command, action in self.rules.iteritems():
-      f.write(command + " | " + action + "\n")
+    for key, value in self.rules.iteritems():
+      if re.match(r"section\d+", key) != None:
+        f.write("\n## " + value + "\n\n")
+        self.write_table(f)
+      else:
+        f.write(key + " | " + value + "\n")
 
   def write_dictionary(self):
     with open(self.file, "w+") as f:
-      self.write_header(f)
+      f.write("# " + self.name + "\n\n")
+      self.write_table(f)
       self.write_definitions(f)
       f.truncate()
 
@@ -51,7 +58,7 @@ os.chdir("./scripts")
 
 grammar_paths = ["..", "../dynamics"]
 
-pattern = re.compile(r"^\s*[\"'](?P<spoken>[^\"']+)[\"']:\s*(?P<result>.*),")
+pattern = re.compile(r"(^\s*[\"'](?P<command>[^\"']+)[\"']:\s*(?P<action>.*),|^\s*###\s*(?P<section>\w*)\s*###)")
 
 grammars = []
 for path in grammar_paths:

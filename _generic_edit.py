@@ -390,7 +390,7 @@ grammarCfg = Config("multi edit")
 grammarCfg.cmd = Section("Language section")
 grammarCfg.cmd.map = Item(
     {
-        ### Navigation
+        ### Navigation ###
         "up [<n>]": Key("up:%(n)d"),
         "down [<n>]": Key("down:%(n)d"),
         "left [<n>]": Key("left:%(n)d"),
@@ -405,7 +405,7 @@ grammarCfg.cmd.map = Item(
         "doc home": Key("c-home/3"),
         "doc end": Key("c-end/3"),
 
-        # Selections
+        ### Selections ###
         "grab <n>": release + Key("shift:down, right:%(n)d, shift:up"),
         "take <n>": release + Key("shift:down, left:%(n)d, shift:up"),
         "take <n> (line|lines)": release + Key("end, shift:down, home, up:%(n)d, home, shift:up"),
@@ -418,7 +418,7 @@ grammarCfg.cmd.map = Item(
         "(take|grab) line": release + Key("home, s-end"),
         "(take|grab) all": release + Key("c-a/3"),
 
-        # Functional keys
+        ### Functional keys ###
         "act": Key("escape"),
         "space": release + Key("space"),
         "space [<n>]": release + Key("space:%(n)d"),
@@ -426,7 +426,7 @@ grammarCfg.cmd.map = Item(
         "slide [<n>]": release + Key("end, enter:%(n)d"),
         "tab [<n>]": Key("tab:%(n)d"),
     
-        # Deletions
+        ### Deletions ###
         "scratch [<n>]": release + Key("backspace:%(n)d"),
         "chuck [<n>]": Key("del/3:%(n)d"),
         "whack [<n>]": Key("shift:down, c-left/3:%(n)d/10, del, shift:up"),
@@ -434,7 +434,7 @@ grammarCfg.cmd.map = Item(
         "scratch [this] line": Key("home, s-end, del"),  # @IgnorePep8
         "chuck [this] line": Key("home:2, s-end, backspace:2"),
 
-        # Common functions
+        ### Common functions ###
         "dump [that]": Function(paste_command),
         "nab [that]": Function(copy_command),
         "cut [that]": release + Key("c-x/3"),
@@ -444,7 +444,7 @@ grammarCfg.cmd.map = Item(
         "redo <n> [times]": release + Key("c-y/3:%(n)d"),
         "save": release + Key("c-s"),
 
-        # Modifiers
+        ### Modifiers ###
         "app key": release + Key("apps/3"),
         "mod key": release + Key("win/3"),
         "[(hold|press)] alt": Key("alt:down/3"),
@@ -455,7 +455,7 @@ grammarCfg.cmd.map = Item(
         "release control": Key("ctrl:up"),
         "release [all]": release,
 
-        # Closures
+        ### Closures ###
         "angles": Key("langle, rangle, left/3"),
         "squares": Key("lbracket, rbracket, left/3"),
         "braces": Key("lbrace, rbrace, left/3"),
@@ -463,15 +463,17 @@ grammarCfg.cmd.map = Item(
         "quotes": Key("dquote/3, dquote/3, left/3"),
         "single quotes": Key("squote, squote, left/3"),
 
-        # Shorthand multiple characters.
+        ### Multiple characters ###
         "double <char>": Text("%(char)s%(char)s"),
         "triple <char>": Text("%(char)s%(char)s%(char)s"),
         "double escape": Key("escape, escape"),  # Exiting menus.
 
-        # Punctuation and separation characters, for quick editing.
+        ### Punctuation and separation
         "colon [<n>]": Key("colon/2:%(n)d"),
         "(semi-colon|semicolon) [<n>]": Key("semicolon/2:%(n)d"),
-        "comma [<n>]": Key("comma/2:%(n)d"),
+        "dit [<n>]": Key("comma/2:%(n)d"),
+        "drip": Key("comma, space"),
+        "drip drop": Key("comma, enter"),
         "(dot|period) [<n>]": Key("dot/2:%(n)d"),
         "(dash|hyphen|minus) [<n>]": Key("hyphen/2:%(n)d"),
         "underscore [<n>]": Key("underscore/2:%(n)d"),
@@ -479,6 +481,7 @@ grammarCfg.cmd.map = Item(
         # To release keyboard capture by VirtualBox.
         # "press right control": Key("Control_R"),
 
+        ### Formatting ###
         # Formatting <n> words to the left of the cursor.
         "camel <n> [words]": Function(camel_case_count),
         "pascal <n> [words]": Function(pascal_case_count),
@@ -498,10 +501,13 @@ grammarCfg.cmd.map = Item(
         # Abbreviate words commonly used in programming.
         # Ex: arguments -> args, parameters -> params.
         "short <abbreviation>": Text("%(abbreviation)s"),
-        # Text corrections.
+
+        ### Corrections ###
         "(add|fix) missing space": Key("c-left/3, space, c-right/3"),
         "(delete|remove) (double|extra) (space|whitespace)": Key("c-left/3, backspace, c-right/3"),  # @IgnorePep8
         "(delete|remove) (double|extra) (type|char|character)": Key("c-left/3, del, c-right/3"),  # @IgnorePep8
+
+        ### Miscellaneous ###
         # Microphone sleep/cancel started dictation.
         "[<text>] (go to sleep|cancel and sleep) [<text2>]": Function(cancel_and_sleep),  # @IgnorePep8
         # Reload Natlink.

@@ -14,7 +14,7 @@ from aenea import (
 
 mapping = {
 
-    # Windows
+    ### Windows ###
     "snap screen": Key("w-up"),
     "snap win": Key("w-down"),
     "snap left": Key("w-left"),
@@ -26,7 +26,7 @@ mapping = {
     "flop": Key("sa-escape"),
     "flap": Key("a-tab"),
 
-    # Workspaces
+    ### Workspaces ###
     "woke <n>": Key("caw-%(n)d"),
     "wix [<n>]": Key("ca-right:%(n)d"),
     "wox [<n>]": Key("ca-left:%(n)d"),
@@ -34,11 +34,11 @@ mapping = {
     "snap wox [<n>]": Key("sca-left:%(n)d"), 
     "snap woke <n>": Key("scaw-%(n)d"),
 
-    # Albert
+    ### Albert ###
     "spot [<text>]": Key("scaw-space/3") + Text("%(text)s"),
     "spite [<text>]": Key("scaw-space/3") + Text("%(text)s") + Key("enter"),
 
-    # Media
+    ### Media ###
     "[toggle] mute": Key("volmute"),
     "louder": Key("volup"),
     "softer": Key("voldown"),    

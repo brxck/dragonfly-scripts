@@ -55,7 +55,8 @@ rules = MappingRule(
         "control": Key("c"),
         "shift": Key("s"),
         "super": Key("w"),
-        "section": Text("### "),
+        "section": Text("###  ###") + Key("left:4"),
+        "section <text>": Text("### %(text)swhile  ###"), 
     },
     extras=[
         IntegerRef("n", 1, 100),

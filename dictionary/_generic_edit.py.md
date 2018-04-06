@@ -5,7 +5,7 @@ command | action
 (bar\|vertical bar\|pipe) | "|"
 (dash\|minus\|hyphen) | "-"
 (dot\|period) | "."
-drip | ","
+drip | Key("comma, space")
 backslash | "\\"
 rail | "_"
 splat | "*"
@@ -215,6 +215,11 @@ period | "period"
 minus | "minus"
 semi-colon | "semi-colon"
 hyphen | "hyphen"
+
+## Navigation
+
+command | action
+--- | ---
 up [\<n>] | Key("up:[n]")
 down [\<n>] | Key("down:[n]")
 left [\<n>] | Key("left:[n]")
@@ -227,6 +232,11 @@ lend | Key("end")
 lendit | Key("end, comma")
 doc home | Key("c-home/3")
 doc end | Key("c-end/3")
+
+## Selections
+
+command | action
+--- | ---
 grab \<n> | release + Key("shift:down, right:[n], shift:up")
 take \<n> | release + Key("shift:down, left:[n], shift:up")
 take \<n> (line\|lines) | release + Key("end, shift:down, home, up:[n], home, shift:up")
@@ -243,6 +253,11 @@ space [\<n>] | release + Key("space:[n]")
 drop [\<n>] | release + Key("enter:[n]")
 slide [\<n>] | release + Key("end, enter:[n]")
 tab [\<n>] | Key("tab:[n]")
+
+## Deletions
+
+command | action
+--- | ---
 scratch [\<n>] | release + Key("backspace:[n]")
 chuck [\<n>] | Key("del/3:[n]")
 whack [\<n>] | Key("shift:down, c-left/3:[n]/10, del, shift:up")
@@ -256,6 +271,11 @@ undo \<n> [times] | release + Key("c-z/3:[n]")
 redo | release + Key("c-y/3")
 redo \<n> [times] | release + Key("c-y/3:[n]")
 save | release + Key("c-s")
+
+## Modifiers
+
+command | action
+--- | ---
 app key | release + Key("apps/3")
 mod key | release + Key("win/3")
 [(hold\|press)] alt | Key("alt:down/3")
@@ -265,6 +285,11 @@ release shift | Key("shift:up")
 [(hold\|press)] control | Key("ctrl:down/3")
 release control | Key("ctrl:up")
 release [all] | release
+
+## Closures
+
+command | action
+--- | ---
 angles | Key("langle, rangle, left/3")
 squares | Key("lbracket, rbracket, left/3")
 braces | Key("lbrace, rbrace, left/3")
@@ -276,10 +301,16 @@ triple \<char> | Text("[char][char][char]")
 double escape | Key("escape, escape")
 colon [\<n>] | Key("colon/2:[n]")
 (semi-colon\|semicolon) [\<n>] | Key("semicolon/2:[n]")
-comma [\<n>] | Key("comma/2:[n]")
+dit [\<n>] | Key("comma/2:[n]")
+drip drop | Key("comma, enter")
 (dot\|period) [\<n>] | Key("dot/2:[n]")
 (dash\|hyphen\|minus) [\<n>] | Key("hyphen/2:[n]")
 underscore [\<n>] | Key("underscore/2:[n]")
+
+## Formatting
+
+command | action
+--- | ---
 camel \<n> [words] | Function(camel_case_count)
 pascal \<n> [words] | Function(pascal_case_count)
 snake \<n> [words] | Function(snake_case_count)
@@ -290,9 +321,19 @@ lowercase \<n> [words] | Function(lowercase_count)
 \<formatType> \<text> | Function(format_text)
 say \<reservedWord> | Text("[reservedWord]")
 short \<abbreviation> | Text("[abbreviation]")
+
+## Corrections
+
+command | action
+--- | ---
 (add\|fix) missing space | Key("c-left/3, space, c-right/3")
 (delete\|remove) (double\|extra) (space\|whitespace) | Key("c-left/3, backspace, c-right/3")
 (delete\|remove) (double\|extra) (type\|char\|character) | Key("c-left/3, del, c-right/3")
+
+## Miscellaneous
+
+command | action
+--- | ---
 [\<text>] (go to sleep\|cancel and sleep) [\<text2>] | Function(cancel_and_sleep)
 \<number> | Text("[number]")
 \<letter> | Text("[letter]")
