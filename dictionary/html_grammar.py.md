@@ -2,7 +2,6 @@
 
 command | action
 --- | ---
-[start] tag <element> | Function(start_tag)
 code | "code"
 (dir|direction) | "dir"
 keytype | "keytype"
@@ -20,7 +19,10 @@ spellcheck | "spellcheck"
 title | "title"
 (U L|an ordered list) | "ul"
 menu | "menu"
+[start] tag \<element> | Function(start_tag)
+end tag \<element> | Function(end_tag)
 controls | "controls"
+attribute \<attribute> | Text(' [xattribute]=""') + Key("left")
 source | "source"
 (colspan|column span) | "colspan"
 (T R|table row) | "tr"
@@ -29,6 +31,7 @@ hidden | "hidden"
 main | "main"
 fieldset | "fieldset"
 (U|uderline) | "u"
+tags \<element> | Function(tags)
 doctype X strict | Text('<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">')
 shadow | "shadow"
 (colgroup|C O L group|[table] column group) | "colgroup"
@@ -49,7 +52,6 @@ output | "output"
 doctype X [transitional] | Text('<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">')
 (col|C O L|[table] column) | "col"
 (bdo|B D O|bi-directional override) | "bdo"
-attribute <attribute> | Text(' %(attribute)s=""') + Key("left")
 (B R|[line] break|newline|new line) | "br"
 (O L|ordered list) | "ol"
 pubdate | "pubdate"
@@ -67,6 +69,7 @@ optimum | "optimum"
 (menuitem|menu item) | "menuitem"
 (H 2|heading 2) | "h2"
 canvas | "canvas"
+(close|right) comment | Text(" -->")
 for | "for"
 (T|table) head | "thead"
 pattern | "pattern"
@@ -147,14 +150,12 @@ reversed | "reversed"
 (abbr|abbreviate|abbreviation) | "abbr"
 link | "link"
 scope | "scope"
-end tag <element> | Function(end_tag)
 ruby | "ruby"
-tags <element> | Function(tags)
 kind | "kind"
-attribute <attribute> [equals] <text> | Function(attribute_with_content)
 target | "target"
 doctype 5 | Text("<!DOCTYPE html>")
 default | "default"
+(open|left) comment \<text> | SCText("<!-- [xtext]")
 align | "align"
 (Q|quote) | "q"
 (H 4|heading 4) | "h4"
@@ -175,7 +176,6 @@ dirname | "dirname"
 figure | "figure"
 (H 6|heading 6) | "h6"
 (D L|description list) | "dl"
-comment <text> | SCText("<!-- %(text)s -->") + Key("left:4")
 (novalidate|no validate) | "novalidate"
 accept | "accept"
 high | "high"
@@ -216,12 +216,12 @@ lang | "lang"
 (T|table) body | "tbody"
 max | "max"
 footer | "footer"
-(close|right) comment | Text(" -->")
-(open|left) comment <text> | SCText("<!-- %(text)s")
+comment \<text> | SCText("<!-- [xtext] -->") + Key("left:4")
 required | "required"
 (href|H ref) | "href"
 element | "element"
 draggable | "draggable"
+attribute \<attribute> [equals] \<text> | Function(attribute_with_content)
 sandbox | "sandbox"
 time | "time"
 (pre|P R E|pre-formatted [text]) | "pre"

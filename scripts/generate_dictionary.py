@@ -19,7 +19,9 @@ class Dictionary:
 
   def parse_matches(self):
     for match in self.matches:
-      self.rules[match.group(1)] = match.group(2)
+      command = re.sub("<", "\<", match.group(1))
+      action = re.sub(r"%\((?P<inter>\w+)\)\w", r"[x\g<inter>]", match.group(2))
+      self.rules[command] = action
 
   def write_dictionary(self):
     with open(self.file, "w+") as f:

@@ -21,7 +21,6 @@ background-origin | "background-origin"
 font-stretch | "font-stretch"
 outline-width | "outline-width"
 border-left | "border-left"
-<numeric> E M | Text("%(numeric)sem")
 grid-columns | "grid-columns"
 columns | "columns"
 border-radius | "border-radius"
@@ -36,13 +35,14 @@ background | "background"
 import | Text("@import ")
 list-style-type | "list-style-type"
 nav-left | "nav-left"
-<numeric> P X | Text("%(numeric)spx")
 text-align | "text-align"
 perspective-origin | "perspective-origin"
 page-break-inside | "page-break-inside"
+hex \<hex1>\<hex2>\<hex3>\<hex4>\<hex5>\<hex6> | Text("#[xhex1][xhex2][xhex3][xhex4][xhex5][xhex6]")
 page-break-before | "page-break-before"
 font-face | "@font-face"
 column-span | "column-span"
+property \<prop> \<text> | Text("[xprop]: ") + SCText("[xtext]")
 column-fill | "column-fill"
 box-align | "box-align"
 column-gap | "column-gap"
@@ -109,17 +109,20 @@ background-clip | "background-clip"
 (E|echo) | "e"
 border-bottom-left-radius | "border-bottom-left-radius"
 punctuation-trim | "punctuation-trim"
-property <prop> | SCText("%(prop)s: ")
+property \<prop> | SCText("[xprop]: ")
 top | "top"
 border-width | "border-width"
 min-width | "min-width"
 width | "width"
+\<numeric> E M | Text("[xnumeric]em")
 target-new | "target-new"
 font-variant | "font-variant"
 border-top-color | "border-top-color"
 background-position | "background-position"
 empty-cells | "empty-cells"
 direction | "direction"
+class \<text> | SCText(".[xtext] {")
+\<numeric> P X | Text("[xnumeric]px")
 box-flex | "box-flex"
 border-right | "border-right"
 visibility | "visibility"
@@ -140,7 +143,6 @@ cursor | "cursor"
 column-rule-style | "column-rule-style"
 three | "3"
 box-pack | "box-pack"
-hex <hex1><hex2><hex3><hex4><hex5><hex6> | Text("#%(hex1)s%(hex2)s%(hex3)s%(hex4)s%(hex5)s%(hex6)s")
 margin | "margin"
 display | "display"
 border-left-width | "border-left-width"
@@ -160,12 +162,12 @@ text-decoration | "text-decoration"
 border | "border"
 border-image-slice | "border-image-slice"
 border-left-color | "border-left-color"
+\<numeric> P T | Text("[xnumeric]pt")
 overflow-y | "overflow-y"
 overflow-x | "overflow-x"
 word-break | "word-break"
 background-repeat | "background-repeat"
 table-layout | "table-layout"
-class <text> | SCText(".%(text)s {")
 text-overflow | "text-overflow"
 six | "6"
 font-style | "font-style"
@@ -178,10 +180,10 @@ border-image-outset | "border-image-outset"
 font-weight | "font-weight"
 opacity | "opacity"
 media query | Text("@media () {") + Key("left/3:3")
-property <prop> <text> | Text("%(prop)s: ") + SCText("%(text)s")
 rotation-point | "rotation-point"
 border-right-color | "border-right-color"
 close comment | Text(" */")
+hex \<hex1>\<hex2>\<hex3> | Text("#[xhex1][xhex2][xhex3]")
 page-break-after | "page-break-after"
 eight | "8"
 two | "2"
@@ -191,7 +193,6 @@ text-indent | "text-indent"
 backface-visibility | "backface-visibility"
 icon | "icon"
 background-image | "background-image"
-<numeric> P T | Text("%(numeric)spt")
 transition-timing-function | "transition-timing-function"
 border-bottom-style | "border-bottom-style"
 url | Text("url('')") + Key("left/3:2")
@@ -204,7 +205,6 @@ transition-duration | "transition-duration"
 margin-top | "margin-top"
 open comment | Text("/* ")
 text | "text"
-hex <hex1><hex2><hex3> | Text("#%(hex1)s%(hex2)s%(hex3)s")
 media | Text("@media ") + Key("left/3:3")
 position | "position"
 list-style-position | "list-style-position"
