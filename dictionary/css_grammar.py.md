@@ -2,7 +2,6 @@
 
 command | action
 --- | ---
-animation | "animation"
 appearance | "appearance"
 backface-visibility | "backface-visibility"
 background | "background"

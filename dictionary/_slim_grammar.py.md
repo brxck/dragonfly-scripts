@@ -1,8 +1,7 @@
-# _slim.py
+# _slim_grammar.py
 
 command | action
 --- | ---
-(A\|anchor) | "a"
 (abbr\|abbreviate\|abbreviation) | "abbr"
 address | "address"
 area | "area"
@@ -213,6 +212,11 @@ usemap | "usemap"
 value | "value"
 width | "width"
 wrap | "wrap"
+
+## Commands
+
+command | action
+--- | ---
 \<element> | Text("[element] ")
 \<element> class \<classes> | Function(tag_with_class)
 \<element> tag \<tags> | Function(tag_with_id)
@@ -224,8 +228,18 @@ if | Text("- if ")
 if \<text> | SCText("- if [text]")
 else | Text("- else ")
 else \<text> | SCText("- else [text]")
+
+## Comments
+
+command | action
+--- | ---
 comment | Text("/ ")
 comment \<text> | SCText("/ [text]")
 code comment | Text("!/ ")
 code comment \<text> | SCText("!/ [text]")
+
+## Interpolation
+
+command | action
+--- | ---
 poll | Text("#{}") + Key("left:2")

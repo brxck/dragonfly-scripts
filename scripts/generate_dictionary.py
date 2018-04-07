@@ -33,17 +33,20 @@ class Dictionary:
     f.write("--- | ---\n")
 
   def write_definitions(self, f):
-    for key, value in self.rules.iteritems():
-      if re.match(r"section\d+", key) != None:
+    for i, (key, value) in enumerate(self.rules.iteritems()):
+      if re.match(r"section\d+", key) == None:
+        if i == 0:
+          self.write_table(f)
+        else:
+          f.write(key + " | " + value + "\n")
+
+      elif re.match(r"section\d+", key) != None:
         f.write("\n## " + value + "\n\n")
         self.write_table(f)
-      else:
-        f.write(key + " | " + value + "\n")
 
   def write_dictionary(self):
     with open(self.file, "w+") as f:
       f.write("# " + self.name + "\n\n")
-      self.write_table(f)
       self.write_definitions(f)
       f.truncate()
 

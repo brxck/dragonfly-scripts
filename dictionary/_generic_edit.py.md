@@ -2,7 +2,6 @@
 
 command | action
 --- | ---
-(bar\|vertical bar\|pipe) | "|"
 (dash\|minus\|hyphen) | "-"
 (dot\|period) | "."
 drip | Key("comma, space")

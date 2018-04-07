@@ -2,7 +2,6 @@
 
 command | action
 --- | ---
-enable \<module> mode | Function(enable_modules)
 enable \<module> mode only | Function(enable_modules, disableOthers=True)
 enable \<module> and \<module2> mode | Function(enable_modules)
 enable \<module> and \<module2> mode only | Function(enable_modules, disableOthers=True)

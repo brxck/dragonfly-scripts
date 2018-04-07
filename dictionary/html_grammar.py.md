@@ -2,7 +2,6 @@
 
 command | action
 --- | ---
-(A\|anchor) | "a"
 (abbr\|abbreviate\|abbreviation) | "abbr"
 address | "address"
 area | "area"

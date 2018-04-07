@@ -2,7 +2,6 @@
 
 command | action
 --- | ---
-go back [\<n>] | Key("a-left/15:[n]")
 go forward [\<n>] | Key("a-right/15:[n]")
 [open] new window | Key("c-n")
 close window | Key("cs-w")

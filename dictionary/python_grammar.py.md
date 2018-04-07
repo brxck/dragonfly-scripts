@@ -2,7 +2,6 @@
 
 command | action
 --- | ---
-and | Text(" and ")
 as | Text("as ")
 assign | Text(" = ")
 assert | Text("assert ")

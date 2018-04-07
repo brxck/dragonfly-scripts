@@ -2,7 +2,6 @@
 
 command | action
 --- | ---
-new key | Function(new_key)
 new text | Function(new_text)
 left num | Text("<n>")
 left text | Text("<text>")

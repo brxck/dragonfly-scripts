@@ -1,5 +1,8 @@
 # _programming_help.py
 
+
+## Filler
+
 command | action
 --- | ---
 foobar | Text("foobar")
@@ -21,6 +24,11 @@ dot (rar\|R A R) | Text(".rar")
 dot sass | Text(".sass")
 dot S H | Text(".sh")
 dot T X T | Text(".txt")
+
+## Web
+
+command | action
+--- | ---
 dot S E | Text(".se")
 dot (O R G\|org) | Text(".org")
 protocol H T T P | Text("http://")

@@ -1,7 +1,5 @@
-# _app_desktop.py
+# _desktop.py
 
-command | action
---- | ---
 
 ## Windows
 

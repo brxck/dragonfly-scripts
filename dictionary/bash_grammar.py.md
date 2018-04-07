@@ -2,7 +2,6 @@
 
 command | action
 --- | ---
-apt cache search | Text("apt-cache search ")
 apt cache search \<text> | SCText("apt-cache search [text]")
 apt cache show | Text("apt-cache show ")
 apt cache show \<text> | SCText("apt-get show [text]")

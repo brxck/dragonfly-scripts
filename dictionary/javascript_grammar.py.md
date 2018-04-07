@@ -2,7 +2,6 @@
 
 command | action
 --- | ---
-and | Text(" && ")
 assign | Text(" = ")
 break | Text("break")
 case | Text("case ")

@@ -2,7 +2,6 @@
 
 command | action
 --- | ---
-all | "all?"
 any | "any?"
 collect | "collect"
 each | "each"

@@ -2,7 +2,6 @@
 
 command | action
 --- | ---
-add | "--add"
 blame | "blame"
 branch | "branch"
 (check out\|checkout) | "checkout"
