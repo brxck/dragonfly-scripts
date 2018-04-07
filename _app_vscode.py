@@ -16,7 +16,7 @@ import lib.format
 
 mapping = {
 
-    # Files
+    ### Files ###
     "[open] command palette": Key("cs-p"),
     "(open [file] | Go to [tab]) [<text>]": Key("c-p") + Text("%(text)s"),
     "open folder": Key("c-k/3, c-s"),
@@ -25,7 +25,7 @@ mapping = {
     "new window": Key("cs-n"),
     "new file": Key("c-n"),
     
-    # Search
+    ### Search ###
     "search [all] (files | codebase)": Key("cs-f"),
     "find": Key("c-f"),
     "find next <n>": Key("f3:%(n)d"),
@@ -33,20 +33,20 @@ mapping = {
     # "(Find | Jump [to]) next <text>": Function(findNthToken, n=1, direction="forward"),
     # "(Find | Jump [to]) previous <text>": Function(findNthToken, n=1, direction="reverse"),
 
-    # Tabs
+    ### Tabs ###
     "nexta [<n>]": Key("c-pgdown:%(n)d"),
     "prexta [<n>]": Key("c-pgup:%(n)d"),
     "close tab": Key("c-w"),
     "exit preview": Key("space, c-z"),
 
-    # Navigation
+    ### Navigation ###
     "jump <n>": Key("c-g") + Text("%(n)d") + Key("enter"),
     "go to definition": Key("f12"),
     "go to required definition": Key("c-f12:2, c-right:5, left/50, f12"),
     "go to (top | first line)": Key("c-home"),
     "go to ( bottom | last line)": Key("c-end"),
 
-    # Editing
+    ### Editing ###
     "indent [<n>]": Key("c-rbracket"),
     "outdent [<n>]": Key("c-lbracket"),
     "slide [<n>]": Key("c-enter"),
@@ -62,7 +62,7 @@ mapping = {
     "scrup page [<n>]": Key("a-pgup:%(n)d"),
     "scrown page [<n>]": Key("a-pgdown:%(n)d"),
 
-    # Window
+    ### Window ###
     "[toggle] full screen": Key("f11"),
     "[toggle] Zen mode": Key("c-k/3, z"),
     "[toggle] side bar": Key("c-b"),
@@ -75,7 +75,7 @@ mapping = {
     "focus four": Key("c-4"),
     "toggle (term|terminal)": Key("a-1"),
 
-    # Debugging
+    ### Debugging ###
     "[toggle] breakpoint":          Key("f9"),
     # "step over [<n>]":              Key("f10/50") * Repeat(extra="n"),
     "step into":                    Key("f11"),
