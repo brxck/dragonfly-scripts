@@ -278,7 +278,7 @@ def attribute_with_content(attribute, text):
 
 rules = MappingRule(
     mapping={
-        # Commands and keywords.
+        ### Commands ###
         "<element>": Text("%(element)s "),
         "<element> class <classes>": Function(tag_with_class),
         "<element> tag <tags>": Function(tag_with_id),        
@@ -292,12 +292,14 @@ rules = MappingRule(
         "else <text>": SCText("- else %(text)s"),
         "verbatim": Key("| ")
         "verbatim <text>": SCText("| %(text)s")
-        # Comments.
+        
+        ### Comments ###
         "comment": Text("/ "),
         "comment <text>": SCText("/ %(text)s"),
         "code comment": Text("!/ "),
         "code comment <text>": SCText("!/ %(text)s"),
-        # Interpolation
+        
+        ### Interpolation ###
         "poll": Text("#{}") + Key("left:2"),
     },
     extras=[
