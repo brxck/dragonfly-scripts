@@ -1,3 +1,5 @@
 # Ignore Natlink files
 core/
 _vocola_main.py
+
+.vscode/launch.json
